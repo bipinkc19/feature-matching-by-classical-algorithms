@@ -2,8 +2,8 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
-img1 = cv2.imread('kite_runner.jpg', cv2.IMREAD_GRAYSCALE)          # queryImage
-img2 = cv2.imread('kite_runner_.jpg', cv2.IMREAD_GRAYSCALE) # trainImage
+img1 = cv2.imread('./images/kite_runner.jpg', cv2.IMREAD_GRAYSCALE)          # queryImage
+img2 = cv2.imread('./images/kite_runner_.jpg', cv2.IMREAD_GRAYSCALE) # trainImage
 
 orb = cv2.ORB_create()
 
@@ -34,4 +34,6 @@ draw_params = dict(matchColor = (0,255,0),
 
 img3 = cv2.drawMatchesKnn(img1,kp1,img2,kp2,matches,None,**draw_params)
 
-plt.imshow(img3),plt.show()
+cv2.imshow('image',img3)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
